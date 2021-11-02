@@ -18,12 +18,12 @@ export default function User({ match, history }) {
 
   const id = get(match, 'params.id', '');
 
-  const [nome, setNome] = useState('');
+  const [name, setNome] = useState('');
   const [email, setEmail] = useState('');
-  const [sobrenome, setSobrenome] = useState('');
-  const [idade, setIdade] = useState('');
-  const [peso, setPeso] = useState('');
-  const [altura, setAltura] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [age, setAge] = useState('');
+  const [weight, setWeight] = useState('');
+  const [height, setHeight] = useState('');
   const [foto, setFoto] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -38,12 +38,12 @@ export default function User({ match, history }) {
 
         setFoto(Foto);
 
-        setNome(data.nome);
-        setSobrenome(data.sobrenome);
+        setNome(data.name);
+        setLastname(data.lastname);
         setEmail(data.email);
-        setIdade(data.idade);
-        setPeso(data.peso);
-        setAltura(data.altura);
+        setAge(data.age);
+        setWeight(data.weight);
+        setHeight(data.height);
 
         setIsLoading(false);
       } catch (err) {
@@ -62,12 +62,12 @@ export default function User({ match, history }) {
     e.preventDefault();
     let formErrors = false;
 
-    if (nome.length < 3 || nome.length > 255) {
+    if (name.length < 3 || name.length > 255) {
       toast.error('Nome precisa esta entar entre 3 a 255 caracteres');
       formErrors = true;
     }
 
-    if (sobrenome.length < 3 || sobrenome.length > 255) {
+    if (lastname.length < 3 || lastname.length > 255) {
       toast.error('O sobrenome precisa estar entre 3 a 255 caracteres');
       formErrors = true;
     }
@@ -77,17 +77,17 @@ export default function User({ match, history }) {
       formErrors = true;
     }
 
-    if (!isInt(String(idade))) {
+    if (!isInt(String(age))) {
       toast.error('idade esta inalida');
       formErrors = true;
     }
 
-    if (!isFloat(String(peso))) {
+    if (!isFloat(String(age))) {
       toast.error('O peso esta invalido');
       formErrors = true;
     }
 
-    if (!isFloat(String(altura))) {
+    if (!isFloat(String(height))) {
       toast.error('Altura esta invalido');
       formErrors = true;
     }
@@ -99,22 +99,22 @@ export default function User({ match, history }) {
 
       if (id) {
         await axios.put(`/alunos/${id}`, {
-          nome,
-          sobrenome,
+          name,
+          lastname,
           email,
-          idade,
-          peso,
-          altura,
+          age,
+          weight,
+          height,
         });
         toast.success('Usuario Editado com sucesso');
       } else {
         const { data } = await axios.post('/alunos/', {
-          nome,
-          sobrenome,
+          name,
+          lastname,
           email,
-          idade,
-          peso,
-          altura,
+          age,
+          weight,
+          height,
         });
         toast.success('Usuario criado com suceso');
         history.push(`/aluno/${data.id}/edit`);
@@ -145,7 +145,7 @@ export default function User({ match, history }) {
 
         {id && (
           <Photo>
-            {foto ? <img src={foto} alt={nome} /> : <FaUserCircle size={180} />}
+            {foto ? <img src={foto} alt={name} /> : <FaUserCircle size={180} />}
             <Link to={`/fotos/${id}`}>
               <FaEdit size={24} />
             </Link>
@@ -156,15 +156,15 @@ export default function User({ match, history }) {
           <input
             type="text"
             placeholder="nome"
-            value={nome}
+            value={name}
             onChange={(e) => setNome(e.target.value)}
           />
 
           <input
             type="text"
-            placeholder="sobrenome..."
-            value={sobrenome}
-            onChange={(e) => setSobrenome(e.target.value)}
+            placeholder="lastname..."
+            value={lastname}
+            onChange={(e) => setLastname(e.target.value)}
           />
 
           <input
@@ -176,23 +176,23 @@ export default function User({ match, history }) {
 
           <input
             type="number"
-            placeholder="idade"
-            value={idade}
-            onChange={(e) => setIdade(e.target.value)}
+            placeholder="age"
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
           />
 
           <input
             type="text"
             placeholder="peso"
-            value={peso}
-            onChange={(e) => setPeso(e.target.value)}
+            value={weight}
+            onChange={(e) => setWeight(e.target.value)}
           />
 
           <input
             type="text"
             placeholder="altura"
-            value={altura}
-            onChange={(e) => setAltura(e.target.value)}
+            value={height}
+            onChange={(e) => setHeight(e.target.value)}
           />
 
           <button type="submit">Enviar</button>

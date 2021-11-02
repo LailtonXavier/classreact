@@ -13,45 +13,45 @@ export default function Register(props) {
   const dispatch = useDispatch();
 
   const id = useSelector((state) => state.auth.user.id);
-  const nomeStored = useSelector((state) => state.auth.user.nome);
+  const nameStored = useSelector((state) => state.auth.user.name);
   const emailStored = useSelector((state) => state.auth.user.email);
   const isLoading = useSelector((state) => state.auth.isLoading);
   const { history } = props;
 
-  const [nome, setName] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   useEffect(() => {
     if (!id) return;
 
-    setName(nomeStored);
+    setName(nameStored);
     setEmail(emailStored);
-  }, [emailStored, id, nomeStored]);
+  }, [emailStored, id, nameStored]);
 
   async function handleSubmit(e) {
     e.preventDefault();
 
     let formErros = false;
 
-    if (nome.length < 3 || nome.length > 255) {
+    if (name.length < 3 || name.length > 255) {
       formErros = true;
-      toast.error('Nome is invalid');
+      toast.error('O nome esta inválida');
     }
 
-    if (!id && (password.length < 6 || password.length > 50)) {
+    if (!id && (password.length < 3 || password.length > 50)) {
       formErros = true;
-      toast.error('Senha is invalid');
+      toast.error('Senha esta inválido');
     }
 
     if (!isEmail(email)) {
       formErros = true;
-      toast.error('E-mail is invalid');
+      toast.error('E-mail esta inválido');
     }
 
     if (formErros) return;
 
-    dispatch(actions.registerRequest({ nome, password, email, id, history }));
+    dispatch(actions.registerRequest({ name, email, password, id, history }));
   }
   return (
     <Container>
@@ -63,7 +63,7 @@ export default function Register(props) {
           <input
             type="text"
             placeholder="Fulanos..."
-            value={nome}
+            value={name}
             onChange={(e) => setName(e.target.value)}
           />
 

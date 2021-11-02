@@ -12,6 +12,7 @@ import axios from '../../services/axios';
 import Loading from '../../components/Loading';
 import { Container } from '../../styles/GlobalStyles';
 import { CenterUsers, Content, NovoAluno } from './styled';
+import AllUsers from './AllUsers';
 
 export default function Users() {
   const [student, setStudents] = useState(['']);
@@ -63,6 +64,9 @@ export default function Users() {
     <>
       <Container>
         <Loading isLoading={isLoading} />
+
+        <AllUsers />
+
         <NovoAluno to="/aluno/">Novo Aluno</NovoAluno>
         <CenterUsers>
           {student.map((students, index) => (
@@ -76,7 +80,7 @@ export default function Users() {
               </div>
 
               <div className="text">
-                <span>{students.nome}</span>
+                <span>{students.name}</span>
                 <span>{students.email}</span>
 
                 <div className="icons">
@@ -104,14 +108,7 @@ export default function Users() {
           ))}
         </CenterUsers>
         <Content>
-          <p>
-            Desenvilvido com ReactJs + redux Desenvilvido com ReactJs + redux
-            Desenvilvido com ReactJs + redux Desenvilvido com ReactJs + redux
-            Desenvilvido com ReactJs + redux Desenvilvido com ReactJs + redux
-            Desenvilvido com ReactJs + redux Desenvilvido com ReactJs + redux
-            Desenvilvido com ReactJs + redux Desenvilvido com ReactJs + redux
-            Desenvilvido com ReactJs + redux Desenvilvido com ReactJs + redux
-          </p>
+          <p>Desenvolvido usando ReactJs + Redux </p>
         </Content>
       </Container>
     </>

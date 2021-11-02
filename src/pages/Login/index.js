@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { isEmail } from 'validator';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,14 +15,11 @@ export default function Login(props) {
 
   const isLoading = useSelector((state) => state.auth.isLoading);
 
-  const passRef = useRef('');
-  const emailRef = useRef('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const password = passRef.current.value;
-    const email = emailRef.current.value;
 
     let formError = false;
 
@@ -41,10 +38,6 @@ export default function Login(props) {
     dispatch(actions.loginRequest({ password, email, prevPath, history }));
   };
 
-  useEffect(() => {
-    emailRef.current.focus();
-  }, []);
-
   return (
     <Container>
       <Loading isLoading={isLoading} />
@@ -55,9 +48,19 @@ export default function Login(props) {
         <div className="circule" />
 
         <form onSubmit={handleSubmit}>
-          <input ref={emailRef} type="email" placeholder="fulano@gmail.com" />
+          <input
+            type="email"
+            placeholder="fulano@gmail.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-          <input ref={passRef} placeholder="password..." type="password" />
+          <input
+            placeholder="password..."
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
           <button type="submit">Entrar</button>
         </form>

@@ -11,7 +11,6 @@ export const Center = styled.div`
   background: rgba(0, 0, 0, 0.8);
   box-shadow: 2px 2px 10px rgba(250, 250, 250, 0.8);
   width: 450px;
-  height: 500px;
   position: relative;
   overflow: hidden;
 
@@ -33,6 +32,7 @@ export const Center = styled.div`
   p {
     display: inline-block;
     word-break: break-all;
+    margin-bottom: 83px;
     /* margin: 10px 0 50px; */
     border-bottom: 2px dotted rgba(250, 250, 250, 0.8);
     font-size: 2rem;
@@ -60,6 +60,7 @@ export const Center = styled.div`
      justify-content: center;
      align-items: center;
     margin-top: 10px;
+    margin-bottom: 50px;
     padding: 0.2rem;
     font-size: 2rem;
 

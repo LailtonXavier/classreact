@@ -11,17 +11,18 @@ export const CenterRegister = styled.div`
   background: rgba(0, 0, 0, 0.8);
   box-shadow: 2px 2px 10px rgba(250, 250, 250, 0.8);
   width: 450px;
-  height: 500px;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 
   h1 {
     color: white;
+    margin-bottom: 50px;
   }
 
   .circule {
     position: absolute;
-    top: -110px;
+    top: -105px;
     left: 0px;
     bottom: 0;
     border-radius: 20px 0 0 0;
@@ -30,6 +31,7 @@ export const CenterRegister = styled.div`
     width: 210px;
     height: 270px;
     transform: rotate(20deg);
+    z-index: -1;
   }
 
   form {

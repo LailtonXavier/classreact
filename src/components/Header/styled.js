@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Nav = styled.nav`
-  background: black;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -15,7 +14,6 @@ export const Nav = styled.nav`
 `;
 
 export const Log = styled.div`
-  color: white;
   display: flex;
   justify-content: left;
   align-items: center;

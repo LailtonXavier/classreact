@@ -4,6 +4,8 @@ export const CenterFoot = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  color: white;
   padding: 2rem;
   font-size: 1.5rem;
   font-weight: bold;

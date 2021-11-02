@@ -4,6 +4,13 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
 
+@font-face {
+  font-family: 'CircularStd';
+  src: url('/CircularStdBold.woff') format('woff');
+  /* font-weight: 300; */
+  /* font-style: normal; */
+}
+
   * {
     margin: 0;
     padding: 0;
@@ -23,7 +30,7 @@ export default createGlobalStyle`
   }
 
   body, input, textarea, button {
-    font: 400 1.5rem "serif";
+    font: 250 1.5rem "CircularStd";
   }
 
   button {
@@ -61,7 +68,7 @@ export default createGlobalStyle`
   input:focus {
     padding: 3px 0px 3px 3px;
     margin: 10px 1px 10px 1px;
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    box-shadow: 2px 2px 10px rgba(81, 203, 238, 1);
     border: 1px solid rgba(81, 203, 238, 1);
   }
 
