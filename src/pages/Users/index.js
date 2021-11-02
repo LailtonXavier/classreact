@@ -65,8 +65,6 @@ export default function Users() {
       <Container>
         <Loading isLoading={isLoading} />
 
-        <AllUsers />
-
         <NovoAluno to="/aluno/">Novo Aluno</NovoAluno>
         <CenterUsers>
           {student.map((students, index) => (
@@ -110,6 +108,7 @@ export default function Users() {
         <Content>
           <p>Desenvolvido usando ReactJs + Redux </p>
         </Content>
+        <AllUsers />
       </Container>
     </>
   );

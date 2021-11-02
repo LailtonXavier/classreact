@@ -118,30 +118,46 @@ export const NovoAluno = styled(Link)`
 `;
 
 export const All = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
   border-radius: 20px;
   border: 1px solid white;
   padding: 1rem;
   position: relative;
 
-  width: 30rem;
   height: 450px;
   overflow: hidden;
   overflow-y: scroll;
   color: white;
   margin: 1rem;
 
+  .about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 350px;
+    border: 2px solid white;
+    border-radius: 20px;
+    width: 25rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(81, 203, 238, 0.2);
+    box-shadow: 2px 2px 20px hsla(265, 53%, 29%, 0.5);
+  }
   p {
     border-bottom: 1px solid rgba(81, 203, 238, 1);
+    font-size: 2.5rem;
   }
 
   .circle {
     display: flex;
     flex-wrap: wrap;
-    position: absolute;
-    right: 0;
     text-align: center;
-    width: 400px;
-    height: 350;
+    width: 25rem;
     border-radius: 50%;
 
     overflow: hidden;

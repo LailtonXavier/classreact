@@ -14,17 +14,22 @@ const AllUsers = () => {
   }, []);
   return (
     <All>
-      <p>Usuarios no programa</p>
-      <div className="circle">
-        {usersDatas.map((dados) => (
-          <div key={String(dados.id)} className="allUsers">
-            {dados.name}
-          </div>
-        ))}
+      <div className="about">
+        <p>Usuarios no programa</p>
       </div>
 
-      <div className="squares" />
-      <div className="squares2" />
+      <div>
+        <div className="circle">
+          {usersDatas.map((dados) => (
+            <div key={String(dados.id)} className="allUsers">
+              {dados.name}
+            </div>
+          ))}
+        </div>
+
+        <div className="squares" />
+        <div className="squares2" />
+      </div>
     </All>
   );
 };
